@@ -1,5 +1,8 @@
+import { async } from "@firebase/util";
 import React, { useState } from "react";
 import { Text, View,FlatList, TouchableOpacity, Image, StyleSheet,Modal } from "react-native";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../../firebaseConnection";
 
 const DATA =[
     {
@@ -17,6 +20,26 @@ const DATA =[
         function openModal(){
             setModalVisible(true)
         }
+       async function Deslogou(){ 
+        await signOut(auth)
+        .then(() => {
+                
+                console.log('Usuário deslogado! \n' )
+               
+                  
+            })
+                .catch(error => console.log(error));
+         }
+        
+      
+    //    async function signOut(){
+    //         await  signOut(auth)
+    //         .then(() => {
+    //                 console.log('Usuário deslogado!' )
+                    
+    //             })
+    //                 .catch(error => console.log(error));
+    //     }
         return(
             <View style={styles.container}>
                 <View style={styles.avatar}>
@@ -68,7 +91,9 @@ const DATA =[
                         <Text style={styles.txtBtnModal}>CANCELAR</Text>
                     </TouchableOpacity>
                       
-                       <TouchableOpacity>
+                       <TouchableOpacity
+                       onPress={Deslogou}
+                       >
                           <Text  style={styles.txtBtnModal}>
                             SIM
                          </Text>
