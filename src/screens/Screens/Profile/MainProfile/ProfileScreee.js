@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View,FlatList, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { Text, View,FlatList, TouchableOpacity, Image, StyleSheet,Modal } from "react-native";
 
 const DATA =[
     {
@@ -10,9 +10,13 @@ const DATA =[
         dataNasc: '15/12/2000',
         email: 'TESTE@GMAIL.COM'
     }
-]
-
-    const Item = ({item, onPress, backgroundColor, textColor})=>{
+]   
+    
+    const Item = ({item, onPress,openModal})=>{
+        const [modalVisible,setModalVisible] = useState(false)
+        function openModal(){
+            setModalVisible(true)
+        }
         return(
             <View style={styles.container}>
                 <View style={styles.avatar}>
@@ -38,29 +42,65 @@ const DATA =[
                 </View>
                 <View>
                     <TouchableOpacity
+                     onPress={() => openModal()}
                     style={styles.exit}
                     >
                          <Text style={styles.txtBtnExit}>SAIR</Text>
                     </TouchableOpacity>
                   
+                  <Modal 
+                  style={{justifyContent:'center',alignItems:'center', flex:1}}
+                  animationType="slide"
+                  visible={modalVisible}
+                  transparent={true}>
+                 
+                  <View style={styles.styleModal}>
+                  
+                        <Text style={styles.txtWarning}>
+                          Atenção!
+                        </Text>
+                         <Text style={styles.txtDescriptionModal}>
+                            Deseja mesmo sair?
+                         </Text>
+
+                   <View style={styles.btnOption}>
+                     <TouchableOpacity onPress={() => setModalVisible(false)}>
+                        <Text style={styles.txtBtnModal}>CANCELAR</Text>
+                    </TouchableOpacity>
+                      
+                       <TouchableOpacity>
+                          <Text  style={styles.txtBtnModal}>
+                            SIM
+                         </Text>
+                      </TouchableOpacity>
+                   </View>
+                   
+                    </View>
+                  </Modal >
 
                 </View>
             </View>
             
         )
     }
+      
 
-export default ({navigation}) => {
+export default function  ProfileScreen({navigation}){
+    
+  
+           
+   
     const [selectedId, setSelectedId] = useState(null)
     const renderItem = ({item}) => {
         return (<Item 
             item={item}
             onPress={() => {setSelectedId(item.id) 
                 navigation.navigate('ProfileEdition',{item})}}
-            
+              
             />)
+         
     }
-    
+     
     return(
         <FlatList
             data={DATA}
@@ -115,5 +155,40 @@ const styles = StyleSheet.create({
         width:'80%',
         marginTop:10,
         marginBottom:30
+    },
+    styleModal:{
+        flex:1,
+        elevation:16,
+        marginHorizontal:90,
+        marginVertical:390,
+        backgroundColor:'white',
+        justifyContent:'center',
+        alignItems:'flex-start',
+        borderRadius:20,
+        padding:30
+    },
+    btnOption:{
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        width:'50%',
+        //alignItems:'flex-end'
+        marginLeft:120,
+        marginTop:50
+    },
+    txtBtnModal:{
+        color:'black',
+        fontSize:16,
+        fontWeight:'bold'
+    },
+    txtWarning:{
+        color:'black',
+        fontSize:20,
+        fontWeight:'bold'
+    },
+    txtDescriptionModal:{
+        color:'#969696',
+        fontSize:18,
+        marginTop:10
     }
+
 })
