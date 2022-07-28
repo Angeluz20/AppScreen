@@ -32,14 +32,7 @@ const DATA =[
          }
         
       
-    //    async function signOut(){
-    //         await  signOut(auth)
-    //         .then(() => {
-    //                 console.log('Usuário deslogado!' )
-                    
-    //             })
-    //                 .catch(error => console.log(error));
-    //     }
+
         return(
             <View style={styles.container}>
                 <View style={styles.avatar}>
@@ -183,7 +176,7 @@ const styles = StyleSheet.create({
     },
     styleModal:{
         flex:1,
-        elevation:16,
+        elevation:10,
         marginHorizontal:90,
         marginVertical:390,
         backgroundColor:'white',

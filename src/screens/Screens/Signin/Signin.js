@@ -36,24 +36,7 @@ export default function Signin({changeStatus}){
             .catch(error => console.log(error));
     }
    }
-    //   async function createUser(){
-    //     await createUserWithEmailAndPassword(auth,email,password)
-    //     .then(value => {
-    //             console.log('cadastrado com sucesso! \n' + value.user.uid)
-    //     })
-    //     .catch(error => console.log(error));
-       
-    // };
-    // async function Login(){
-    //     await signInWithEmailAndPassword(email,password)
-    //     .then(value => {
-    //             console.log('Acesso Concedido \n' + value.user.uid)
-    //     }) 
-        
-    //     .catch(error => console.log(error)); 
-    //     alert('Usuário ou senha inválida');
-    //     return;
-    // };
+   
 
    return(
      <View style={styles.container}>

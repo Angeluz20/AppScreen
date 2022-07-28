@@ -2,34 +2,9 @@ import React, { useState } from "react";
 import { FlatList, SafeAreaView, TextInput, View, StyleSheet, Text, TouchableOpacity, Image, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ActivitiesSelect from './ModalHumorDaily/ActivitiesSelect'
-const DATA = [
-  {
-    id: "1",
-    title: "RADIANTE",
-    img:require('../../assets/humores/radiant.png')
-  },
-  {
-    id: "2",
-    title: "FELIZ",
-    img:require('../../assets/humores/happy.png')
-  },
-  {
-    id: "3",
-    title: "OK",
-    img:require('../../assets/humores/ok.png')
-  },
-  {
-    id: "4",
-    title: "TRISTE",
-    img:require('../../assets/humores/sad.png')
-  },
-  {
-    id: "5",
-    title: "ACABADO",
-    img:require('../../assets/humores/terrible.png')
-  },
-  
-];
+import RenderData from "../DailyStorie/RenderData";
+import { DATA } from "./DataList";
+
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   
@@ -52,7 +27,7 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
 
 const Teste = ({navigation}) => {
   const [selectedId, setSelectedId] = useState(null);
-
+  const [newTask, setNewTask] = useState('')
   const renderItem = ({ item }) => {
     
     const backgroundColor = item.id === selectedId ? "#304FFE" : "white";
@@ -96,7 +71,9 @@ const Teste = ({navigation}) => {
         horizontal
         keyExtractor={(item) => item.id}
         extraData={selectedId} 
+        
       />
+      
         <View style={styles.activitiesArea}>
 
             <ActivitiesSelect/>
@@ -107,7 +84,8 @@ const Teste = ({navigation}) => {
             style={styles.CommentUser}>
             
                 <TextInput
-                    
+                    value={newTask}
+                    onChangeText={(text) => setNewTask(text)}
                     placeholder="Escreva aqui o que aconteceu hoje... ">
                 
                  </TextInput>
@@ -119,7 +97,10 @@ const Teste = ({navigation}) => {
                 style={styles.btnSave}
                 >
                     <Text style={styles.btnSaveText}>SALVAR</Text>
+        
         </TouchableOpacity>
+        
+       
     </SafeAreaView>
     </ScrollView>
   );
@@ -132,6 +113,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor:'white',
+    marginBottom:80
   },
   styleBtn:{
     width: 40,

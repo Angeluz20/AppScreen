@@ -1,5 +1,5 @@
 import  React,{useState} from 'react';
-import DailyRecord from '../Screens/DailyRecord/Record'
+import DailyStorie from '../Screens/DailyStorie/DailyStorie';
 import Cards from '../Screens/Cards/index';
 import Profile from '../Screens/Profile/index';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
@@ -34,7 +34,7 @@ const Tab = createBottomTabNavigator();
     </View>)
   }
   return(
-    <Tab.Navigator initialRouteName='cardsRegistration'
+    <Tab.Navigator initialRouteName='DailyStorie'
     screenOptions={{
       tabBarShowLabel:false,
       tabBarStyle:{
@@ -63,8 +63,8 @@ const Tab = createBottomTabNavigator();
           <FontAwesome name="home" color={color} size={20}/>
         ),
       }}
-      name='cardsRegistration'
-      component={Cards}
+      name='DailyStorie'
+      component={DailyStorie}
       />
 
         <Tab.Screen 
