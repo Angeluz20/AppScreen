@@ -22,7 +22,9 @@ function openModal(){
            >
                 <Text style={styles.btnPhotoText}>ALTERAR FOTO</Text>
             </TouchableOpacity>
+        
          <Modal visible={modalVisible}>
+            
             <View>
             <TouchableOpacity 
                style={styles.styleBtn}
@@ -31,9 +33,15 @@ function openModal(){
              
               </TouchableOpacity>
                 
-            
+             
             </View>
-            <SelectAvatar/>
+            <SelectAvatar/> 
+            <TouchableOpacity 
+                 onPress={() => setModalVisible(false)}
+                style={styles.btnSaveModal}
+                >
+                    <Text style={styles.btnSaveText}>SALVAR</Text>
+            </TouchableOpacity>
          </Modal>
          
             <TextInput style={styles.input}>
@@ -114,6 +122,20 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       marginLeft:50,
       marginTop:10,
-  
+   
+    },
+    txtBtn:{
+     fontSize:20
+    },
+    btnSaveModal:{
+        width:'80%',
+        backgroundColor:'#304FFE',
+        padding:17,
+        margin:25,
+        borderRadius:3,
+        alignItems:'center',
+        justifyContent:'center',
+        marginLeft:50,
+        marginBottom:100
     }
 })

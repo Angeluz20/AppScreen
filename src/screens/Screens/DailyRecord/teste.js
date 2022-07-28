@@ -50,8 +50,9 @@ const Teste = ({navigation}) => {
   <ScrollView>
     <SafeAreaView style={styles.container}>  
       <TouchableOpacity 
+      style={styles.exit}
       onPress={() => navigation.navigate('Cards')}>
-        <Text>Exit</Text>
+        <Text>X</Text>
       </TouchableOpacity>
         <View style={styles.TitleStyle}>
            <Text style={styles.txtTitleTop}>Como você está?</Text>
@@ -204,12 +205,22 @@ const styles = StyleSheet.create({
        margin:25,
        borderRadius:3,
        alignItems:'center',
-       marginBottom:100,
+       marginBottom:40,
    },
    btnSaveText:{
     color:'white',
     fontSize:15,
     fontWeight:'bold'
+}, 
+exit:{
+      width: 40,
+      height:40,
+      borderRadius: 10,
+      backgroundColor: '#C6CEFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginRight:400,
+      marginTop:30,
 }
  
 });

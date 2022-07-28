@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     editProfile:{
         width:380,
         height:55,
-        backgroundColor:'blue',
+        backgroundColor:'#304FFE',
         justifyContent:'center',
         alignItems:'center',
         borderRadius:10

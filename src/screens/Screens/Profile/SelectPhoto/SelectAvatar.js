@@ -1,9 +1,8 @@
-import React,{Component} from "react";
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-const numColumns = 3
-export default ({navigation}) => {
-    
-           const  DATA= [
+import React, { useState } from "react";
+import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity,View } from "react-native";
+const numColumns= 3
+const DATA = [
+          
                 {
                  id:'1',
                  img: require('../../../assets/humores/happy.png'),
@@ -36,96 +35,82 @@ export default ({navigation}) => {
                 }
             ]
          
-        
-            
-   
-        return(
-        <View style={styles.conatainer}>
-            <View style={styles.modal}>
-            <View style={styles.title}>
-            <Text style={styles.txtTitle}>Selecione a foto de perfil</Text>
-            </View>
+         
 
-              <FlatList
-               data={DATA}
-               keyExtractor={(item) => String(item.id)}  
-               numColumns={numColumns}
-               renderItem={({item})=> <View style={{
-                height:120,
-                width:135,
-               }}>
-                
-               <View style={styles.containerHumor}>
-               
-                <TouchableOpacity>
-                    <View style={styles.selectHumorColor}>
-                         <Image source={item.img} style={{width:92, height:92}}/>
-                     </View> 
-               </TouchableOpacity> 
-             
-                </View>
-               </View>}
-           
-              />
-                <TouchableOpacity 
-                 onPress={() => navigation.navigate('ProfileEdition')}
-                style={styles.btnSave}
-                >
-                    <Text style={styles.btnSaveText}>SALVAR</Text>
-                </TouchableOpacity>
-            </View>
+const Item = ({ item, onPress, backgroundColor, textColor }) => (
+  
+  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+  <View>
+    <Image source={item.img} style={{width:100, height:100}}/>
+  </View>
+  </TouchableOpacity>
+);
+
+const Humor = () => {
+  const [selectedId, setSelectedId] = useState(null);
+
+  const renderItem = ({ item }) => {
+    const backgroundColor = item.id === selectedId ? "blue" : "white";
+    const color = item.id === selectedId ? 'white' : 'black';
+
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        backgroundColor={{ backgroundColor }}
+        
+        textColor={{ color }}
+      />
+    );
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+        <View style={styles.txtAreaPhoto}>
+            <Text style={styles.txtPhoto}>Selecione a foto de perfil</Text>
         </View>
-    )
-}
+      <FlatList
+        data={DATA} 
+        numColumns={numColumns}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      
+        extraData={selectedId}
+      />
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-   conatainer:{
-    flex:1,
-    padding:30,
-    alignItems:'center',
+  container: {
+    flex: 1,
+    padding:20,
+    marginTop:100
+},
+  item: {
+    width:115,
+    height:115,
+    padding: 20,
+    marginHorizontal: 16,
+    borderRadius:60,
     justifyContent:'center',
-    backgroundColor:'white'
-   },
-   modal:{
-    flex:1,
-    width:'100%',
     alignItems:'center'
-   },
-   containerHumor:{
-    flex:1,
-    width:'90%',
-    height:80,
+  },
+  title: {
+    fontSize: 32,
+  },
+  txtAreaPhoto:{
     justifyContent:'center',
     alignItems:'center',
-    padding:10
-   },
-   title:{
-    width:'90%',
-    alignItems:'center',
-    marginTop:100,
-    marginBottom:29
-   },
-   txtTitle:{
-    fontSize:20,
+    marginBottom:50,
+    marginTop:-60
+  },
+  txtPhoto:{
+    fontSize:25,
     fontWeight:'bold',
     color:'black'
-   },
-   nome:{
-    color:'black'
-   }
-   ,
-   btnSave:{
-       width:'80%',
-       backgroundColor:'#304FFE',
-       padding:17,
-       margin:25,
-       borderRadius:3,
-       alignItems:'center',
-      
-   },
-   btnSaveText:{
-       color:'white',
-       fontSize:15,
-       fontWeight:'bold'
-   }
-})
+  }
+});
+
+export default Humor;
+
