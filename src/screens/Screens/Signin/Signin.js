@@ -2,7 +2,7 @@
 import { async } from "@firebase/util";
 import React, {useState} from "react";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth'
-import { auth } from "../../firebaseConnection";
+import { auth } from '../../../firebaseConnection';
 
 import { View, Text, Button,TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
 
@@ -28,8 +28,10 @@ export default function Signin({changeStatus}){
     //Cadastro
     const user =    createUserWithEmailAndPassword(auth,email,password)
     .then(value => {
-            changeStatus(user.user.uid)
+            changeStatus(user)
             console.log('cadastrado com sucesso! \n' + value.user.uid)
+            alert('Usuário cadastrado com sucesso');
+                return;
         })
             .catch(error => console.log(error));
     }

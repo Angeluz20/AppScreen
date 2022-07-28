@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { Text, View, StyleSheet,SafeAreaView } from 'react-native';
-import Signin from './src/pages/Siginin/Signin';
-import Home from './src/pages/Home/home';
-
+import Signin from './src/screens/Screens/Signin/Signin';
+import Routes from './src/screens/Routes/Routes'
+import { NavigationContainer } from '@react-navigation/native';
 const App = () =>{
 const [user, SetUser] = useState(null);
 
@@ -12,9 +12,11 @@ if(!user){
   return <Signin changeStatus={(user) => SetUser(user)} />
 }
   return(
-    <View >
-    <Home/>
-    </View>
+    <NavigationContainer>
+  
+    <Routes/>
+    
+    </NavigationContainer>
   )
 }
 
