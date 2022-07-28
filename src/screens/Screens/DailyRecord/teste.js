@@ -29,7 +29,10 @@ const Teste = ({navigation}) => {
   const [selectedId, setSelectedId] = useState(null);
   const [newTask, setNewTask] = useState('')
   const renderItem = ({ item }) => {
-    
+    function deleteCard(id){
+      console.log(id)
+
+    }
     const backgroundColor = item.id === selectedId ? "#304FFE" : "white";
     const color = item.id === selectedId ?  '#C801FA':'#969696' ;
  
