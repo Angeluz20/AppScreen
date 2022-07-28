@@ -14,11 +14,10 @@ if(!user){
   return(
     <NavigationContainer>
   
-    <Routes/>
+       <Routes/>
     
     </NavigationContainer>
   )
 }
-
 
 export default App;
