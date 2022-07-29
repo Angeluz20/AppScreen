@@ -10,7 +10,7 @@ const DATA = [
         avatar: require('../../../assets/humores/ok.png'),
         nome: 'FULANO',
         genero: 'MASCULINO',
-        dataNasc: '15/12/2000',
+        dataNasc: '15/12/1998',
         email: 'TESTE@GMAIL.COM'
     }
 ]
@@ -31,6 +31,7 @@ const Item = ({ item, onPress, openModal }) => {
             })
 
             .catch(error => console.log(error));
+
     }
 
 
@@ -42,14 +43,35 @@ const Item = ({ item, onPress, openModal }) => {
             </View>
 
             <View style={styles.welcomeUser}>
-                <Text style={{ fontSize: 25, color: 'black' }}>OLÁ, {item.nome}</Text>
+                <Text style={{ fontSize: 25, color: 'black', fontFamily: 'SourceSansPro-Regular' }}>Olá, {item.nome}</Text>
             </View>
 
+
+           
             <View style={styles.informationUser}>
-                <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'black' }}>E-MAIL:  {item.email} </Text>
-                <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'black' }}>GÊNERO:  {item.genero}</Text>
-                <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'black' }}>DATA DE NASCIMENTO: {item.dataNasc}</Text>
+                <Text style={styles.styletxtUser}>
+                    E-MAIL:
+                    <Text style={styles.styletxtUserfilled}>
+                        {item.email}
+                    </Text>
+                </Text>
+
+                <Text style={styles.styletxtUser}>
+                    GÊNERO:
+                    <Text style={styles.styletxtUserfilled}>
+                        {item.genero}
+                    </Text>
+                </Text>
+
+                <Text style={styles.styletxtUser}>
+                    DATA DE NASCIMENTO:
+                    <Text style={styles.styletxtUserfilled}>
+                        {item.dataNasc}
+                    </Text>
+                </Text>
             </View>
+
+
 
             <View>
                 <TouchableOpacity
@@ -80,7 +102,7 @@ const Item = ({ item, onPress, openModal }) => {
                         <Text style={styles.txtWarning}>
                             Atenção!
                         </Text>
-                        
+
                         <Text style={styles.txtDescriptionModal}>
                             Deseja mesmo sair?
                         </Text>
@@ -92,27 +114,24 @@ const Item = ({ item, onPress, openModal }) => {
                             </TouchableOpacity>
 
                             <TouchableOpacity
-                                onPress={Deslogou}
-                            >
+                                onPress={Deslogou}>
+
                                 <Text style={styles.txtBtnModal}>
                                     SIM
                                 </Text>
-                            </TouchableOpacity>
-                        </View>
 
+                            </TouchableOpacity>
+
+                        </View>
                     </View>
                 </Modal >
-
             </View>
         </View>
-
     )
 }
 
 
 export default function ProfileScreen({ navigation }) {
-
-
 
 
     const [selectedId, setSelectedId] = useState(null)
@@ -142,6 +161,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    styletxtUser: {
+        fontSize: 18,
+        color: 'black',
+        fontFamily: 'SourceSansPro-Bold',
+        letterSpacing: 0.4
+    },
+    styletxtUserfilled: {
+        fontSize: 18,
+        color: 'black',
+        fontFamily: 'SourceSansPro-SemiBold'
+    },
     editProfile: {
         width: 380,
         height: 55,
@@ -152,8 +182,9 @@ const styles = StyleSheet.create({
     },
     txtBtn: {
         color: 'white',
-        fontSize: 20,
-        fontWeight: 'bold'
+        fontSize: 18,
+        fontFamily: 'SourceSansPro-Bold',
+        letterSpacing: 1.5
     },
     exit: {
         width: 380,
@@ -168,8 +199,9 @@ const styles = StyleSheet.create({
     },
     txtBtnExit: {
         color: 'black',
-        fontSize: 20,
-        fontWeight: 'bold'
+        fontSize: 18,
+        fontFamily: 'SourceSansPro-Bold',
+        letterSpacing: 1.5
     },
     avatar: {
         marginTop: 80
@@ -179,7 +211,7 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     informationUser: {
-        width: '80%',
+        width: '75%',
         marginTop: 10,
         marginBottom: 30
     },
