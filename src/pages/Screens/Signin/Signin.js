@@ -3,14 +3,14 @@ import { async } from "@firebase/util";
 import React, {useState} from "react";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth'
 import { auth } from '../../../firebaseConnection';
-
+import Icon from '../../../../node_modules/react-native-vector-icons/Entypo'
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
 
 export default function Signin({changeStatus}){
    const [type, setType] = useState('login')
-    const [email,setEmail] = useState('');
+   const [email,setEmail] = useState('');
    const [password,setPassword] = useState('');
-    
+   const[securePassword, setSecurePassword] = useState(true)
 
    function handleLogin(){
     //login
@@ -37,7 +37,7 @@ export default function Signin({changeStatus}){
                 }
                console.log(error)
             })
-            //    .catch(error => console.log(error));
+          
 
                 
     }else{
@@ -73,15 +73,29 @@ export default function Signin({changeStatus}){
        value={email}
        onChangeText={value => setEmail(value)}
        style={styles.input}
+       fontSize={18}
        />
+
+       <View style={styles.inputPassword}>
        <TextInput
        placeholder="senha"
        placeholderTextColor={'#969696'}
-       value={password}
-       secureTextEntry={true}
+       value={securePassword}
+       secureTextEntry={securePassword}
        onChangeText={value => setPassword(value)}
-       style={styles.input}
+       fontSize={18}
        />
+       <View style={{position:'absolute', marginLeft:340, marginTop:15}}>
+        <TouchableOpacity 
+        onPress={() => setSecurePassword(!securePassword)}
+        >
+            {securePassword == true ?  <Icon name='eye' color={'#969696'} size={35}/>: <Icon name='eye-with-line' color={'#969696'} size={35}/>}
+      
+      
+      </TouchableOpacity>
+      </View>
+      </View>
+
        <TouchableOpacity 
        style={styles.btn}
         title="ENTRAR"
@@ -114,7 +128,18 @@ const styles = StyleSheet.create({
      padding:13,
      backgroundColor:'white',
      marginTop:20,
-     borderRadius:10
+     borderRadius:10,
+     flexDirection:'row',
+     height:65
+    },
+    inputPassword:{
+        width:400,
+        padding:13,
+        backgroundColor:'white',
+        marginTop:20,
+        borderRadius:10,
+        flexDirection:'row',
+        height:65
     },
     btn:{
         backgroundColor:'#C6CEFF',

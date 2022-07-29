@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, Text, Modal,Image, TouchableOpacity, View } from "react-native";
+import { FlatList, StyleSheet, Text, Modal,Image, TouchableOpacity, View,SafeAreaView } from "react-native";
 import styleCard from "../../Components/styleCard";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -88,6 +88,7 @@ const Item = ({ item, onPress, backgroundColor}) => {
     NORMAL: 'grey'
   }
   return (
+    <SafeAreaView style={styleCard.containerPrincipal}>
     <TouchableOpacity style={[styleCard.container, backgroundColor]}
       onPress={onPress}>
       <View style={styleCard.containerCard}>
@@ -124,6 +125,7 @@ const Item = ({ item, onPress, backgroundColor}) => {
 
       </View>
     </TouchableOpacity>
+    </SafeAreaView>
     
   )
 }

@@ -1,11 +1,16 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-
+  containerPrincipal:{
+    flex:1,
+    marginHorizontal:7,
+    marginVertical:7,
+    marginTop:30
+  },
   container: {
     flex: 1,
-    padding: 15, 
-    marginTop:30
+    padding: 10, 
+   
   },
   containerCard: {
     backgroundColor: '#FFFFFF',
