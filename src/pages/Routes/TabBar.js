@@ -1,13 +1,14 @@
 import  React,{useState} from 'react';
-import DailyStorie from '../Screens/DailyStorie/DailyStorie';
 import Cards from '../Screens/Cards/index';
-import InfoInput from '../Screens/DailyStorie/Inputs'
 import Profile from '../Screens/Profile/index';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Teste from '../Screens/DailyRecord/teste';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import AntDesign from 'react-native-vector-icons/AntDesign'
+
 import { Text,View, Modal,ScrollView, TouchableOpacity} from 'react-native';
-import Teste from '../Screens/DailyRecord/teste';
+
+
 
 const Tab = createBottomTabNavigator();
 

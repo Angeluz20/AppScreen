@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import SelectAvatar from "../SelectPhoto/SelectAvatar";
 import styles from './styleProfiEdtiton'
+import SelectList from 'react-native-dropdown-select-list'
+import SelectGenero from '../selectGenero/select'
 export default ({ route, navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     function openModal() {
@@ -48,19 +50,19 @@ export default ({ route, navigation }) => {
             <View style={styles.styleInput}>
                 <Text style={styles.txtLabel}>NOME</Text>
                 <TextInput style={styles.input}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 12, color: 'black', marginLeft: 80 }}>{item.nome}</Text>
+                    <Text style={{ fontSize: 16, color: 'black', marginLeft: 80 }}>{item.nome}</Text>
                 </TextInput>
                 <Text style={styles.txtLabel}>E-MAIL</Text>
                 <TextInput style={styles.input}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 12, color: 'black' }}>{item.email}</Text>
+                    <Text style={{  fontSize: 18, color: 'black' }}>{item.email}</Text>
                 </TextInput>
                 <Text style={styles.txtLabel}>GÊNERO</Text>
-                <TextInput style={styles.input}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 12, color: 'black' }}>{item.genero}</Text>
-                </TextInput>
+                <View>
+                    <SelectGenero/>
+                </View>
                 <Text style={styles.txtLabel}>DATA DE NASCIMENTO</Text>
                 <TextInput style={styles.input}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 12, color: 'black' }}>{item.dataNasc}</Text>
+                    <Text style={{ fontSize: 18, color: 'black' }}>{item.dataNasc}</Text>
                 </TextInput>
             </View>
 

@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth'
 import { auth } from '../../../firebaseConnection';
 
-import { View, Text, Button,TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
 
 export default function Signin({changeStatus}){
    const [type, setType] = useState('login')
@@ -19,10 +19,26 @@ export default function Signin({changeStatus}){
         .then(value => {
                 changeStatus(user)
                 console.log('Acesso concedido! \n' + value.user.uid)
-                alert('Acesso concedido');
+               
                 return;
             })
-                .catch(error => console.log(error));
+            .catch(error => {
+                if(error.code === 'auth/user-not-found'){
+                    alert('Usuário não encontrado');
+                    return;
+                }
+                if(error.code === 'auth/wrong-password'){
+                    alert('Senha incorreta');
+                    return;
+                }
+                if(error.code === 'auth/invalid-email'){
+                    alert('preencha todos os campos');
+                    return;
+                }
+               console.log(error)
+            })
+            //    .catch(error => console.log(error));
+
                 
     }else{
     //Cadastro
@@ -33,7 +49,13 @@ export default function Signin({changeStatus}){
             alert('Usuário cadastrado com sucesso');
                 return;
         })
-            .catch(error => console.log(error));
+             .catch(error => {
+                if(error.code === 'auth/email-already-in-use'){
+                    alert('Usuário já existente');
+                    return;
+                }
+               console.log(error)
+            })
     }
    }
    

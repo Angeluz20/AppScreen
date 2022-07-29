@@ -32,7 +32,17 @@ export default StyleSheet.create({
         margin: 25,
         borderRadius: 3,
         alignItems: 'center',
-        marginBottom: 15,
+        marginBottom: 70,
+        marginTop: 45
+    },
+    btnSaveModal:{
+        width: '80%',
+        backgroundColor: '#304FFE',
+        padding: 17,
+        margin: 50,
+        borderRadius: 3,
+        alignItems: 'center',
+        marginBottom: 70,
         marginTop: 45
     },
     btnSaveText: {
@@ -67,6 +77,8 @@ export default StyleSheet.create({
         justifyContent: 'center',
         marginLeft: 50,
         marginTop: 10,
-
+        justifyContent:'center'
+    }, txtBtn:{
+        fontSize:20
     }
 })
