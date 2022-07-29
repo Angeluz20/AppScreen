@@ -1,6 +1,6 @@
 import { async } from "@firebase/util";
 import React, { useState } from "react";
-import { Text, View, FlatList, TouchableOpacity, Image, StyleSheet, Modal } from "react-native";
+import { Text, BackHandler,View, FlatList, TouchableOpacity, Image, StyleSheet, Modal } from "react-native";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../../firebaseConnection";
 import styles from './styleProfileScreen'
@@ -115,7 +115,7 @@ const Item = ({ item, onPress, openModal }) => {
                             </TouchableOpacity>
 
                             <TouchableOpacity
-                                onPress={Deslogou}>
+                                onPress={() =>BackHandler.exitApp()}>
 
                                 <Text style={styles.txtBtnModal}>
                                     SIM

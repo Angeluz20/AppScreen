@@ -98,7 +98,7 @@ const Teste = ({ navigation }) => {
 
 
         <TouchableOpacity
-          onPress={() => navigation.navigate('Details')}
+          onPress={() => navigation.navigate('Cards')}
           style={styles.btnSave}
         >
           <Text style={styles.btnSaveText}>SALVAR</Text>
