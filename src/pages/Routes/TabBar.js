@@ -2,7 +2,7 @@ import  React,{useState} from 'react';
 import Cards from '../Screens/Cards/index';
 import Profile from '../Screens/Profile/index';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Teste from '../Screens/DailyRecord/teste';
+import Storie from '../Screens/DailyRecord/Storie';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
@@ -79,8 +79,8 @@ const Tab = createBottomTabNavigator();
               <AntDesign name="pluscircle" color={'#304FFE'} size={45} />
           ),      
         }} 
-          name='Teste'
-          component={Teste}
+          name='Storie'
+          component={Storie}
           
       />
 

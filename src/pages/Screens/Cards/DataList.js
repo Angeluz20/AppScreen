@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, Text, Modal,Image, TouchableOpacity, View,SafeAreaView } from "react-native";
+import { FlatList, StyleSheet, Text, Modal, Image, TouchableOpacity, View, SafeAreaView } from "react-native";
 import styleCard from "../../Components/styleCard";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -10,7 +10,7 @@ const DATA = [
     humor: 'BEM',
     time: '08:35',
     image: require("../../assets/humores/happy.png"),
-    text:'cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
+    text: 'cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const DATA = [
     humor: 'MAL',
     time: '08:35',
     image: require('../../assets/humores/terrible.png'),
-    text:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const DATA = [
     humor: 'TRISTE',
     time: '08:35',
     image: require('../../assets/humores/sad.png'),
-    text:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const DATA = [
     humor: 'BEM',
     time: '08:35',
     image: require('../../assets/humores/happy.png'),
-    text:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const DATA = [
     humor: 'BEM',
     time: '08:35',
     image: require('../../assets/humores/happy.png'),
-    text:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   },
   {
     id: 6,
@@ -50,7 +50,7 @@ const DATA = [
     humor: 'BEM',
     time: '08:35',
     image: require('../../assets/humores/happy.png'),
-    text:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   },
   {
     id: 7,
@@ -58,7 +58,7 @@ const DATA = [
     humor: 'FELIZ',
     time: '08:35',
     image: require('../../assets/humores/radiant.png'),
-    text:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   },
   {
     id: 8,
@@ -66,7 +66,7 @@ const DATA = [
     humor: 'NORMAL',
     time: '08:35',
     image: require('../../assets/humores/ok.png'),
-    text:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   },
   {
     id: 9,
@@ -74,12 +74,12 @@ const DATA = [
     humor: 'NORMAL',
     time: '08:35',
     image: require('../../assets/humores/ok.png'),
-    text:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   }
- 
- 
+
+
 ]
-const Item = ({ item, onPress, backgroundColor}) => {
+const Item = ({ item, onPress, backgroundColor }) => {
   const colors = {
     BEM: '#E24B4B',
     MAL: '#4B75E2',
@@ -89,44 +89,44 @@ const Item = ({ item, onPress, backgroundColor}) => {
   }
   return (
     <SafeAreaView style={styleCard.containerPrincipal}>
-    <TouchableOpacity style={[styleCard.container, backgroundColor]}
-      onPress={onPress}>
-      <View style={styleCard.containerCard}>
+      <TouchableOpacity style={[styleCard.container, backgroundColor]}
+        onPress={onPress}>
+        <View style={styleCard.containerCard}>
 
-        <View style={styleCard.areaIcone}>
-          <Image source={item.image} style={styles.image} />
+            <View style={styleCard.areaIcone}>
+                 <Image source={item.image} style={styles.image} />
+           </View>
+            <Text style={styleCard.title}>{item.date}</Text>
+           <View style={styleCard.containerTimeAndState}>
+               <Text style={[styleCard.humor, { color: colors[item.humor] }]}>{item.humor}</Text>
+            <Text style={styleCard.time}>{item.time}</Text>
+          </View>
+
+          <View style={styleCard.icones}>
+
+            <MaterialIcon name='party-popper' size={20} color={'#000000'} />
+            <Text style={styleCard.txtIcon}>Festa</Text>
+
+            <MaterialIcon name='checkbox-blank-circle' size={4} color={'#000000'} />
+            <FontAwesome5 name='running' size={20} color={'#000000'} />
+            <Text style={styleCard.txtIcon}>Esporte</Text>
+
+            <MaterialIcon name='checkbox-blank-circle' size={4} color={'#000000'} />
+            <FontAwesome5 name='utensils' size={20} color={'#000000'} />
+            <Text style={styleCard.txtIcon}>Cozinhar</Text>
+
+          </View>
+
+          <View style={styleCard.txtArea}>
+
+            <Text numberOfLines={1} style={{ width: 120, color: '#ACACAC', marginLeft: 20 }}>{item.text}</Text>
+
+          </View>
+
         </View>
-        <Text style={styleCard.title}>{item.date}</Text>
-        <View style={styleCard.containerTimeAndState}>
-          <Text style={[styleCard.humor, { color: colors[item.humor] }]}>{item.humor}</Text>
-          <Text style={styleCard.time}>{item.time}</Text>
-        </View>
-
-        <View style={styleCard.icones}>
-
-          <MaterialIcon name='party-popper' size={20} color={'#000000'} />
-          <Text style={styleCard.txtIcon}>Festa</Text>
-
-          <MaterialIcon name='checkbox-blank-circle' size={4} color={'#000000'} />
-          <FontAwesome5 name='running' size={20} color={'#000000'} />
-          <Text style={styleCard.txtIcon}>Esporte</Text>
-
-          <MaterialIcon name='checkbox-blank-circle' size={4} color={'#000000'} />
-          <FontAwesome5 name='utensils' size={20} color={'#000000'} />
-          <Text style={styleCard.txtIcon}>Cozinhar</Text>
-
-        </View>
-
-        <View style={styleCard.txtArea}>
-
-          <Text numberOfLines={1} style={{ width: 120, color: '#ACACAC', marginLeft: 20 }}>{item.text}</Text>
-
-        </View>
-
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
     </SafeAreaView>
-    
+
   )
 }
 export default ({ navigation }) => {

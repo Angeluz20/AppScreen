@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FlatList, SafeAreaView, TextInput, View, StyleSheet, Text, TouchableOpacity, Image, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ActivitiesSelect from './ModalHumorDaily/ActivitiesSelect'
-import RenderData from "../DailyStorie/RenderData";
+
 import { DATA } from "./DataList";
 
 
@@ -79,7 +79,7 @@ const Teste = ({ navigation }) => {
         />
 
         <View style={styles.activitiesArea}>
-
+        
           <ActivitiesSelect />
 
         </View>

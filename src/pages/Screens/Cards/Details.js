@@ -67,7 +67,6 @@ export default ({ route, navigation }) => {
           </View>
          </View>
 
-
         <View style={styleHumor.SubTitle}>
           <Text style={{ color: 'black', fontWeight: '600', fontSize: 12 }}>Festa</Text>
           <Text style={{ color: 'black', fontWeight: '600', fontSize: 12 }}>Esporte</Text>

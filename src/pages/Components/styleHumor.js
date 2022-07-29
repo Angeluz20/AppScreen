@@ -73,15 +73,12 @@ export default StyleSheet.create({
    lineHeight:19.5
   },
   areaIcon: {
-    padding: 10,
     width: '100%',
-    height: 50,
     flexDirection: 'row',
     justifyContent: "space-evenly",
     alignItems: 'center'
   },
   SubTitle: {
-    padding: 10,
     width: '100%',
     height: 50,
     flexDirection: 'row',
