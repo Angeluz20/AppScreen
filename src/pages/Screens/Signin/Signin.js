@@ -3,7 +3,6 @@ import { async } from "@firebase/util";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { auth } from '../../../firebaseConnection';
-
 import Icon from '../../../../node_modules/react-native-vector-icons/Entypo'
 import styles from './styleSignin'
 
@@ -87,6 +86,7 @@ export default function Signin({ changeStatus }) {
 
             <View style={styles.inputPassword}>
                 <TextInput
+                    style={{padding:10,  width:'85%'}}
                     placeholder="senha"
                     placeholderTextColor={'#969696'}
                     value={securePassword}
@@ -96,7 +96,7 @@ export default function Signin({ changeStatus }) {
                 />
                 <View style={{ position: 'absolute', marginLeft: 340, marginTop: 15 }}>
                     <TouchableOpacity
-                        onPress={() => setSecurePassword(!securePassword)}
+                    onPress={() => setSecurePassword(!securePassword)}
                     >
                         {securePassword == true ? <Icon name='eye-with-line' color={'#969696'} size={35} /> : <Icon name='eye' color={'#969696'} size={35} />}
 

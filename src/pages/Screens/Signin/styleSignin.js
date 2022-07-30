@@ -22,7 +22,9 @@ export default StyleSheet.create({
         marginTop: 20,
         borderRadius: 10,
         flexDirection: 'row',
-        height: 65
+        height: 65,
+        padding:10,
+      
     },
     btn: {
         backgroundColor: '#C6CEFF',
