@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity,View } from "react-native";
+import styles from "./stylePhoto";
 const numColumns= 3
+
 const DATA = [
           
                 {
@@ -81,36 +83,8 @@ const Humor = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding:20,
-    marginTop:100
-},
-  item: {
-    width:115,
-    height:115,
-    padding: 20,
-    marginHorizontal: 16,
-    borderRadius:60,
-    justifyContent:'center',
-    alignItems:'center'
-  },
-  title: {
-    fontSize: 32,
-  },
-  txtAreaPhoto:{
-    justifyContent:'center',
-    alignItems:'center',
-    marginBottom:50,
-    marginTop:-60
-  },
-  txtPhoto:{
-    fontSize:25,
-    fontWeight:'bold',
-    color:'black'
-  }
-});
+
+
 
 export default Humor;
 

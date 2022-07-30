@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
-import { Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, Modal, Text, TextInput, TouchableOpacity, View } from "react-native";
 import SelectAvatar from "../SelectPhoto/SelectAvatar";
 import styles from './styleProfiEdtiton'
-import SelectList from 'react-native-dropdown-select-list'
 import SelectGenero from '../selectGenero/select'
+
 export default ({ route, navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     function openModal() {

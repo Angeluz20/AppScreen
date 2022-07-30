@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {StyleSheet} from 'react-native'
-import Signin from "../Screens/Signin/Signin";
+
 import TabBar from './TabBar'
 
 const Stack = createNativeStackNavigator();

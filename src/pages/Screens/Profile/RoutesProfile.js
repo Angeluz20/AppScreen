@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ProfileEdition from "./MainProfile/ProfileEdition";
-import ProfileScreee from "./MainProfile/ProfileScreee";
+import ProfileScreee from "./MainProfile/ProfileScreen";
 import SelectAvatar from "./SelectPhoto/SelectAvatar";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -18,7 +18,7 @@ export default function App() {
                     headerShown: false,
                 }}
                 name="ProfileScreee"
-                component={ProfileScreee}//home
+                component={ProfileScreee}
             />
 
             <Stack.Screen
@@ -28,9 +28,8 @@ export default function App() {
                     headerShown: false,
                 }}
                 name="ProfileEdition"
-                component={ProfileEdition}//Details
-            />
-
+                component={ProfileEdition}
+             />
             <Stack.Screen
                 options={{
                     title: '',
@@ -38,7 +37,7 @@ export default function App() {
                     headerShown: false,
                 }}
                 name="SelectAvatar"
-                component={SelectAvatar}//Details
+                component={SelectAvatar}
             />
         </Stack.Navigator>
     )

@@ -1,6 +1,6 @@
 import  React,{useState} from 'react';
 import Cards from '../Screens/Cards/index';
-import Profile from '../Screens/Profile/index';
+import Profile from '../Screens/Profile/RoutesProfile';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Storie from '../Screens/DailyRecord/Storie/Storie';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
